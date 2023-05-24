@@ -1,3 +1,6 @@
+// import T1 from "./img/t1.jpg";
+// import T2 from "./img/t2.png";
+// import T3 from "./img/t3.jpg";
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
@@ -12,30 +15,47 @@ import Box from "@material-ui/core/Box";
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(4),
-    height: "80vh", // Set the height to full screen
-    display: "flex", // Use flexbox to fill the screen vertically
-    alignItems: "center", // Center the content vertically
-    justifyContent: "center", // Center the content horizontally
-    position: "fixed",
-    left: 0,
-    width: "100%",
+    minHeight: "100vh",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    background: theme.palette.primary.main,
   },
   title: {
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(4),
+    color: theme.palette.common.white,
+    fontWeight: "bold",
   },
   card: {
-    paddingTop: theme.spacing(2),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    marginBottom: theme.spacing(2),
-    justifyContent: "space-between",
-    height: "100%",
+    marginBottom: theme.spacing(4),
+    padding: theme.spacing(2),
+    backgroundColor: theme.palette.common.white,
+    borderRadius: theme.spacing(2),
+    boxShadow: theme.shadows[3],
+    transition: "box-shadow 0.3s ease-in-out",
+    "&:hover": {
+      boxShadow: theme.shadows[6],
+    },
   },
   media: {
     height: 0,
     paddingTop: "100%",
     backgroundSize: "contain",
+  },
+  productName: {
+    marginTop: theme.spacing(2),
+    fontWeight: "bold",
+    color: theme.palette.text.primary,
+  },
+  productPrice: {
+    marginTop: theme.spacing(1),
+    color: theme.palette.text.secondary,
+  },
+  addButton: {
+    marginTop: theme.spacing(2),
   },
 }));
 
@@ -47,46 +67,28 @@ const Shop = () => {
     {
       id: 1,
       name: "Recycled T-Shirt",
-      image: "/images/t-shirt.jpg",
+      image: "./img/t1.jpg",
       price: 19.99,
     },
     {
-      id: 2,
-      name: "Upcycled Backpack",
-      image: "/images/backpack.jpg",
-      price: 34.99,
-    },
-    {
-      id: 3,
-      name: "Upcycled Backpack",
-      image: "/images/backpack.jpg",
-      price: 34.99,
-    },
-    {
       id: 4,
-      name: "Upcycled Backpack",
-      image: "/images/backpack.jpg",
-      price: 34.99,
-    },
-    {
-      id: 5,
       name: "Recycled T-Shirt",
-      image: "/images/t-shirt.jpg",
+      image: "./img/t2.png",
       price: 19.99,
     },
     {
       id: 6,
       name: "Recycled T-Shirt",
-      image: "./img/Donations.jpeg",
+      image: "./img/t3.jpg",
       price: 19.99,
     },
   ];
 
   return (
     <Box className={classes.root}>
-      <Box width="90%">
+      <Box width="100%">
         <Typography variant="h2" component="h1" className={classes.title}>
-          Shop Our Products
+          Buy Our Products
         </Typography>
         <Grid container spacing={3}>
           {products.map((product) => (
@@ -98,14 +100,22 @@ const Shop = () => {
                   title={product.name}
                 />
                 <CardContent>
-                  <Typography variant="h6" component="h2">
+                  <Typography
+                    variant="h6"
+                    component="h2"
+                    className={classes.productName}
+                  >
                     {product.name}
                   </Typography>
-                  <Typography variant="body1">
+                  <Typography variant="body1" className={classes.productPrice}>
                     Price: ${product.price.toFixed(2)}
                   </Typography>
                 </CardContent>
-                <Button variant="contained" color="primary">
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  className={classes.addButton}
+                >
                   Add to Cart
                 </Button>
               </Card>
