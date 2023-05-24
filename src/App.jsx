@@ -10,7 +10,6 @@ import Reconditioning from "./Reconditioning.jsx";
 function App() {
   return (
     <Routes>
-      <Route path="*" element={<NotFound />} />
       <Route path="/" element={<Layout />}>
         {/* public routes */}
         <Route index element={<Home />} />
