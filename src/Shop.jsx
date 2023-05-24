@@ -1,14 +1,8 @@
-// import T1 from "./img/t1.jpg";
-// import T2 from "./img/t2.png";
-// import T3 from "./img/t3.jpg";
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import Card from "@material-ui/core/Card";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 
@@ -19,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    width: "100%",
     background: theme.palette.primary.main,
   },
   title: {
@@ -27,6 +22,8 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
   },
   card: {
+    width: "100%",
+    height: "100%",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -41,8 +38,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   media: {
-    height: 0,
-    paddingTop: "100%",
+    height: "100%",
+    width: "100%",
     backgroundSize: "contain",
   },
   productName: {
@@ -67,19 +64,19 @@ const Shop = () => {
     {
       id: 1,
       name: "Recycled T-Shirt",
-      image: "./img/t1.jpg",
+      image: "src/img/t1.jpg",
       price: 19.99,
     },
     {
       id: 4,
       name: "Recycled T-Shirt",
-      image: "./img/t2.png",
+      image: "src/img/t2.png",
       price: 19.99,
     },
     {
       id: 6,
       name: "Recycled T-Shirt",
-      image: "./img/t3.jpg",
+      image: "src/img/t3.jpg",
       price: 19.99,
     },
   ];
@@ -93,13 +90,14 @@ const Shop = () => {
         <Grid container spacing={3}>
           {products.map((product) => (
             <Grid item xs={12} sm={6} md={4} key={product.id}>
-              <Card className={classes.card}>
-                <CardMedia
+              <Box className={classes.card}>
+                <Box
                   className={classes.media}
-                  image={product.image}
-                  title={product.name}
+                  component="img"
+                  src={product.image}
+                  alt={product.name}
                 />
-                <CardContent>
+                <Box>
                   <Typography
                     variant="h6"
                     component="h2"
@@ -110,7 +108,7 @@ const Shop = () => {
                   <Typography variant="body1" className={classes.productPrice}>
                     Price: ${product.price.toFixed(2)}
                   </Typography>
-                </CardContent>
+                </Box>
                 <Button
                   variant="contained"
                   color="secondary"
@@ -118,7 +116,7 @@ const Shop = () => {
                 >
                   Add to Cart
                 </Button>
-              </Card>
+              </Box>
             </Grid>
           ))}
         </Grid>
