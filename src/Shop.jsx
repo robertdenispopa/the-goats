@@ -5,6 +5,9 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
+import T1 from "./img/t1.jpg";
+import T2 from "./img/t2.png";
+import T3 from "./img/t3.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,28 +62,6 @@ const useStyles = makeStyles((theme) => ({
 const Shop = () => {
   const classes = useStyles();
 
-  // Dummy product data
-  const products = [
-    {
-      id: 1,
-      name: "Recycled T-Shirt",
-      image: "src/img/t1.jpg",
-      price: 19.99,
-    },
-    {
-      id: 4,
-      name: "Recycled T-Shirt",
-      image: "src/img/t2.png",
-      price: 19.99,
-    },
-    {
-      id: 6,
-      name: "Recycled T-Shirt",
-      image: "src/img/t3.jpg",
-      price: 19.99,
-    },
-  ];
-
   return (
     <Box className={classes.root}>
       <Box width="100%">
@@ -88,37 +69,93 @@ const Shop = () => {
           Buy Our Products
         </Typography>
         <Grid container spacing={3}>
-          {products.map((product) => (
-            <Grid item xs={12} sm={6} md={4} key={product.id}>
-              <Box className={classes.card}>
-                <Box
-                  className={classes.media}
-                  component="img"
-                  src={product.image}
-                  alt={product.name}
-                />
-                <Box>
-                  <Typography
-                    variant="h6"
-                    component="h2"
-                    className={classes.productName}
-                  >
-                    {product.name}
-                  </Typography>
-                  <Typography variant="body1" className={classes.productPrice}>
-                    Price: ${product.price.toFixed(2)}
-                  </Typography>
-                </Box>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  className={classes.addButton}
+          <Grid item xs={12} sm={6} md={4} key={1}>
+            <Box className={classes.card}>
+              <Box
+                className={classes.media}
+                component="img"
+                src={T1}
+                alt="Recycled T-Shirt"
+              />
+              <Box>
+                <Typography
+                  variant="h6"
+                  component="h2"
+                  className={classes.productName}
                 >
-                  Add to Cart
-                </Button>
+                  Recycled T-Shirt
+                </Typography>
+                <Typography variant="body1" className={classes.productPrice}>
+                  Price: $19.99
+                </Typography>
               </Box>
-            </Grid>
-          ))}
+              <Button
+                variant="contained"
+                color="secondary"
+                className={classes.addButton}
+              >
+                Add to Cart
+              </Button>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} key={2}>
+            <Box className={classes.card}>
+              <Box
+                className={classes.media}
+                component="img"
+                src={T2}
+                alt="Recycled T-Shirt"
+              />
+              <Box>
+                <Typography
+                  variant="h6"
+                  component="h2"
+                  className={classes.productName}
+                >
+                  Recycled T-Shirt
+                </Typography>
+                <Typography variant="body1" className={classes.productPrice}>
+                  Price: $19.99
+                </Typography>
+              </Box>
+              <Button
+                variant="contained"
+                color="secondary"
+                className={classes.addButton}
+              >
+                Add to Cart
+              </Button>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} key={3}>
+            <Box className={classes.card}>
+              <Box
+                className={classes.media}
+                component="img"
+                src={T3}
+                alt="Recycled T-Shirt"
+              />
+              <Box>
+                <Typography
+                  variant="h6"
+                  component="h2"
+                  className={classes.productName}
+                >
+                  Recycled T-Shirt
+                </Typography>
+                <Typography variant="body1" className={classes.productPrice}>
+                  Price: $19.99
+                </Typography>
+              </Box>
+              <Button
+                variant="contained"
+                color="secondary"
+                className={classes.addButton}
+              >
+                Add to Cart
+              </Button>
+            </Box>
+          </Grid>
         </Grid>
       </Box>
     </Box>

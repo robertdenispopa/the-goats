@@ -13,6 +13,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         {/* public routes */}
         <Route index element={<Home />} />
+        <Route path="the-goats" element={<Home />} />
         <Route path="*" element={<NotFound />} />
         <Route path="home" element={<Home />} />
         <Route path="shop" element={<Shop />} />
